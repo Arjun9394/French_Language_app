@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FrenchQuest</string>
+    <string name="nav_home">Accueil</string>
+    <string name="nav_progress">Progrès</string>
+</resources>
