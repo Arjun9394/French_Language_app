@@ -412,7 +412,6 @@ class QuizBlitzFragment : Fragment() {
             if (isAdded) findNavController().navigateUp()
         }, 2500)
     }
-    }
 
     override fun onDestroyView() { super.onDestroyView(); timer?.cancel(); _binding = null }
 }
@@ -549,8 +548,12 @@ class BonusRoundFragment : Fragment() {
         tts = TTSManager.getInstance(requireContext())
         currentBonus = BonusType.entries.random()
         showIntroScreen()
+        // Bug 8 fix: disable the start button until words are loaded
+        binding.btnStart.isEnabled = false
         viewModel.loadRandomWords("A1", 10) { loaded ->
+            if (!isAdded) return@loadRandomWords
             words = loaded.toMutableList()
+            binding.btnStart.isEnabled = true
         }
         binding.btnStart.setOnClickListener {
             if (!started) { started = true; binding.btnStart.visibility = View.GONE; startBonus() }

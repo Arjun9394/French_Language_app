@@ -57,6 +57,19 @@ class FillGapGameFragment : Fragment() {
         viewModel.loadRandomWords(cefrLevel, TOTAL_QUESTIONS + 10) { words ->
             if (!isAdded) return@loadRandomWords
             buildQuestions(words, difficulty)
+            // Bug 6 fix: if no fill-gap questions could be built (e.g. all words lack
+            // an exampleSentence), show a graceful message instead of instant endGame()
+            if (questions.isEmpty()) {
+                binding.tvFeedback.apply {
+                    visibility = View.VISIBLE
+                    setTextColor(android.graphics.Color.parseColor("#FFE66D"))
+                    text = "⚠️ Pas assez de phrases d’exemple pour ce niveau. Reviens plus tard !"
+                }
+                binding.tvFeedback.postDelayed({
+                    if (isAdded) findNavController().navigateUp()
+                }, 2500)
+                return@loadRandomWords
+            }
             showQuestion(0)
         }
     }

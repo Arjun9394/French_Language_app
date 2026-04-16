@@ -1,0 +1,130 @@
+[
+    {
+        "merged": "com.frenchquest.app-debug-59:/layout_fragment_fill_gap.xml.flat",
+        "source": "com.frenchquest.app-main-61:/layout/fragment_fill_gap.xml"
+    },
+    {
+        "merged": "com.frenchquest.app-debug-59:/layout_item_badge.xml.flat",
+        "source": "com.frenchquest.app-main-61:/layout/item_badge.xml"
+    },
+    {
+        "merged": "com.frenchquest.app-debug-59:/layout_fragment_placement_test.xml.flat",
+        "source": "com.frenchquest.app-main-61:/layout/fragment_placement_test.xml"
+    },
+    {
+        "merged": "com.frenchquest.app-debug-59:/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "com.frenchquest.app-main-61:/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.frenchquest.app-debug-59:/layout_fragment_quiz_blitz.xml.flat",
+        "source": "com.frenchquest.app-main-61:/layout/fragment_quiz_blitz.xml"
+    },
+    {
+        "merged": "com.frenchquest.app-debug-59:/layout_fragment_flashcard.xml.flat",
+        "source": "com.frenchquest.app-main-61:/layout/fragment_flashcard.xml"
+    },
+    {
+        "merged": "com.frenchquest.app-debug-59:/navigation_nav_graph.xml.flat",
+        "source": "com.frenchquest.app-main-61:/navigation/nav_graph.xml"
+    },
+    {
+        "merged": "com.frenchquest.app-debug-59:/layout_fragment_dialogue.xml.flat",
+        "source": "com.frenchquest.app-main-61:/layout/fragment_dialogue.xml"
+    },
+    {
+        "merged": "com.frenchquest.app-debug-59:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "com.frenchquest.app-main-61:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.frenchquest.app-debug-59:/anim_slide_in_right.xml.flat",
+        "source": "com.frenchquest.app-main-61:/anim/slide_in_right.xml"
+    },
+    {
+        "merged": "com.frenchquest.app-debug-59:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "com.frenchquest.app-main-61:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.frenchquest.app-debug-59:/layout_fragment_bonus.xml.flat",
+        "source": "com.frenchquest.app-main-61:/layout/fragment_bonus.xml"
+    },
+    {
+        "merged": "com.frenchquest.app-debug-59:/anim_fade_out.xml.flat",
+        "source": "com.frenchquest.app-main-61:/anim/fade_out.xml"
+    },
+    {
+        "merged": "com.frenchquest.app-debug-59:/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "com.frenchquest.app-main-61:/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.frenchquest.app-debug-59:/layout_activity_main.xml.flat",
+        "source": "com.frenchquest.app-main-61:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.frenchquest.app-debug-59:/layout_fragment_pronounce.xml.flat",
+        "source": "com.frenchquest.app-main-61:/layout/fragment_pronounce.xml"
+    },
+    {
+        "merged": "com.frenchquest.app-debug-59:/anim_fade_in.xml.flat",
+        "source": "com.frenchquest.app-main-61:/anim/fade_in.xml"
+    },
+    {
+        "merged": "com.frenchquest.app-debug-59:/layout_fragment_word_match.xml.flat",
+        "source": "com.frenchquest.app-main-61:/layout/fragment_word_match.xml"
+    },
+    {
+        "merged": "com.frenchquest.app-debug-59:/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "com.frenchquest.app-main-61:/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.frenchquest.app-debug-59:/layout_fragment_progress.xml.flat",
+        "source": "com.frenchquest.app-main-61:/layout/fragment_progress.xml"
+    },
+    {
+        "merged": "com.frenchquest.app-debug-59:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "com.frenchquest.app-main-61:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.frenchquest.app-debug-59:/anim_slide_out_left.xml.flat",
+        "source": "com.frenchquest.app-main-61:/anim/slide_out_left.xml"
+    },
+    {
+        "merged": "com.frenchquest.app-debug-59:/layout_fragment_splash.xml.flat",
+        "source": "com.frenchquest.app-main-61:/layout/fragment_splash.xml"
+    },
+    {
+        "merged": "com.frenchquest.app-debug-59:/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "com.frenchquest.app-main-61:/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.frenchquest.app-debug-59:/menu_bottom_nav_menu.xml.flat",
+        "source": "com.frenchquest.app-main-61:/menu/bottom_nav_menu.xml"
+    },
+    {
+        "merged": "com.frenchquest.app-debug-59:/layout_fragment_listen_tap.xml.flat",
+        "source": "com.frenchquest.app-main-61:/layout/fragment_listen_tap.xml"
+    },
+    {
+        "merged": "com.frenchquest.app-debug-59:/layout_fragment_home.xml.flat",
+        "source": "com.frenchquest.app-main-61:/layout/fragment_home.xml"
+    },
+    {
+        "merged": "com.frenchquest.app-debug-59:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "com.frenchquest.app-main-61:/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.frenchquest.app-debug-59:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "com.frenchquest.app-main-61:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.frenchquest.app-debug-59:/drawable_ic_home.xml.flat",
+        "source": "com.frenchquest.app-main-61:/drawable/ic_home.xml"
+    },
+    {
+        "merged": "com.frenchquest.app-debug-59:/drawable_ic_progress.xml.flat",
+        "source": "com.frenchquest.app-main-61:/drawable/ic_progress.xml"
+    },
+    {
+        "merged": "com.frenchquest.app-debug-59:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "com.frenchquest.app-main-61:/mipmap-hdpi/ic_launcher.png"
+    }
+]

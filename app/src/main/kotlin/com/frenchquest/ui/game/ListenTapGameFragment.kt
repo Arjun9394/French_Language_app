@@ -118,37 +118,39 @@ class ListenTapGameFragment : Fragment() {
     }
 
     private fun onChoiceTapped(btn: Button, chosen: Word) {
+        // Bug 7 fix: guard against null currentWord (double-tap / late postDelayed callback race)
+        val target = currentWord ?: return
         for (i in 0 until binding.layoutChoices.childCount)
             binding.layoutChoices.getChildAt(i).isEnabled = false
 
-        val correct = chosen.id == currentWord?.id
+        val correct = chosen.id == target.id
 
-        btn.setBackgroundColor(Color.parseColor(if (correct) "#2ECC71" else "#E74C3C"))
+        btn.setBackgroundColor(android.graphics.Color.parseColor(if (correct) "#2ECC71" else "#E74C3C"))
 
         if (correct) {
             correctCount++; xpEarned += 10
-            SpacedRepetitionEngine.processAnswer(currentWord!!, SpacedRepetitionEngine.QUALITY_CORRECT)
+            SpacedRepetitionEngine.processAnswer(target, SpacedRepetitionEngine.QUALITY_CORRECT)
             binding.tvFeedback.apply {
                 visibility = View.VISIBLE
-                setTextColor(Color.parseColor("#2ECC71"))
-                text = "✓ ${currentWord!!.french} = ${currentWord!!.english}"
+                setTextColor(android.graphics.Color.parseColor("#2ECC71"))
+                text = "✓ ${target.french} = ${target.english}"
             }
         } else {
-            SpacedRepetitionEngine.processAnswer(currentWord!!, SpacedRepetitionEngine.QUALITY_WRONG)
+            SpacedRepetitionEngine.processAnswer(target, SpacedRepetitionEngine.QUALITY_WRONG)
             for (i in 0 until binding.layoutChoices.childCount) {
                 val b = binding.layoutChoices.getChildAt(i) as Button
-                if (currentChoiceWords[i].id == currentWord?.id)
-                    b.setBackgroundColor(Color.parseColor("#2ECC71"))
+                if (currentChoiceWords[i].id == target.id)
+                    b.setBackgroundColor(android.graphics.Color.parseColor("#2ECC71"))
             }
             binding.tvFeedback.apply {
                 visibility = View.VISIBLE
-                setTextColor(Color.parseColor("#E74C3C"))
-                text = "✗ C'était : ${currentWord!!.french} = ${currentWord!!.english}"
+                setTextColor(android.graphics.Color.parseColor("#E74C3C"))
+                text = "✗ C’était : ${target.french} = ${target.english}"
             }
         }
 
-        currentWord?.let { viewModel.updateWord(it) }
-        tts.speak(currentWord!!.french)
+        viewModel.updateWord(target)
+        tts.speak(target.french)
         btn.postDelayed({ showQuestion(currentIndex + 1) }, 1800)
     }
 

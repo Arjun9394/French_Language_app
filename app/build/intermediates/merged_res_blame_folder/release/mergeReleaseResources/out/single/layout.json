@@ -1,0 +1,58 @@
+[
+    {
+        "merged": "com.frenchquest.app-mergeReleaseResources-58:/layout/fragment_home.xml",
+        "source": "com.frenchquest.app-main-61:/layout/fragment_home.xml"
+    },
+    {
+        "merged": "com.frenchquest.app-mergeReleaseResources-58:/layout/fragment_splash.xml",
+        "source": "com.frenchquest.app-main-61:/layout/fragment_splash.xml"
+    },
+    {
+        "merged": "com.frenchquest.app-mergeReleaseResources-58:/layout/fragment_bonus.xml",
+        "source": "com.frenchquest.app-main-61:/layout/fragment_bonus.xml"
+    },
+    {
+        "merged": "com.frenchquest.app-mergeReleaseResources-58:/layout/fragment_progress.xml",
+        "source": "com.frenchquest.app-main-61:/layout/fragment_progress.xml"
+    },
+    {
+        "merged": "com.frenchquest.app-mergeReleaseResources-58:/layout/fragment_word_match.xml",
+        "source": "com.frenchquest.app-main-61:/layout/fragment_word_match.xml"
+    },
+    {
+        "merged": "com.frenchquest.app-mergeReleaseResources-58:/layout/fragment_flashcard.xml",
+        "source": "com.frenchquest.app-main-61:/layout/fragment_flashcard.xml"
+    },
+    {
+        "merged": "com.frenchquest.app-mergeReleaseResources-58:/layout/fragment_dialogue.xml",
+        "source": "com.frenchquest.app-main-61:/layout/fragment_dialogue.xml"
+    },
+    {
+        "merged": "com.frenchquest.app-mergeReleaseResources-58:/layout/fragment_quiz_blitz.xml",
+        "source": "com.frenchquest.app-main-61:/layout/fragment_quiz_blitz.xml"
+    },
+    {
+        "merged": "com.frenchquest.app-mergeReleaseResources-58:/layout/fragment_pronounce.xml",
+        "source": "com.frenchquest.app-main-61:/layout/fragment_pronounce.xml"
+    },
+    {
+        "merged": "com.frenchquest.app-mergeReleaseResources-58:/layout/fragment_placement_test.xml",
+        "source": "com.frenchquest.app-main-61:/layout/fragment_placement_test.xml"
+    },
+    {
+        "merged": "com.frenchquest.app-mergeReleaseResources-58:/layout/activity_main.xml",
+        "source": "com.frenchquest.app-main-61:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.frenchquest.app-mergeReleaseResources-58:/layout/item_badge.xml",
+        "source": "com.frenchquest.app-main-61:/layout/item_badge.xml"
+    },
+    {
+        "merged": "com.frenchquest.app-mergeReleaseResources-58:/layout/fragment_listen_tap.xml",
+        "source": "com.frenchquest.app-main-61:/layout/fragment_listen_tap.xml"
+    },
+    {
+        "merged": "com.frenchquest.app-mergeReleaseResources-58:/layout/fragment_fill_gap.xml",
+        "source": "com.frenchquest.app-main-61:/layout/fragment_fill_gap.xml"
+    }
+]

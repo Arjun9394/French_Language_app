@@ -35,7 +35,11 @@ abstract class FrenchDatabase : RoomDatabase() {
         }
 
         private fun buildDatabase(context: Context): FrenchDatabase {
-            return Room.databaseBuilder(
+            // Bug 2 fix: capture via lateinit var so the callback always holds a valid
+            // reference regardless of when Room fires onCreate (which may be before
+            // INSTANCE is assigned in the synchronized block).
+            lateinit var instance: FrenchDatabase
+            instance = Room.databaseBuilder(
                 context.applicationContext,
                 FrenchDatabase::class.java,
                 "frenchquest.db"
@@ -43,16 +47,13 @@ abstract class FrenchDatabase : RoomDatabase() {
                 .addCallback(object : Callback() {
                     override fun onCreate(db: SupportSQLiteDatabase) {
                         super.onCreate(db)
-                        // Post seed work — INSTANCE is guaranteed set after buildDatabase returns,
-                        // but onCreate fires during build(). Use a short delay or query INSTANCE.
                         CoroutineScope(Dispatchers.IO).launch {
-                            // Wait for INSTANCE to be assigned
-                            val database = INSTANCE ?: return@launch
-                            seedDatabase(database)
+                            seedDatabase(instance)
                         }
                     }
                 })
                 .build()
+            return instance
         }
 
         private suspend fun seedDatabase(db: FrenchDatabase) {

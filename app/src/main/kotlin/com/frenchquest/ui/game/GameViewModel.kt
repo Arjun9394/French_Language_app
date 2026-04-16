@@ -22,7 +22,7 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
 
     private val db = FrenchDatabase.getInstance(application)
     val repository = FrenchQuestRepository(db.wordDao(), db.userProgressDao(), db.badgeDao())
-    private val difficultyEngine = AdaptiveDifficultyEngine()
+    // AdaptiveDifficultyEngine is now a singleton object — no instance needed (Bug 3 fix)
 
     private val _progress = MutableLiveData<UserProgress>()
     val progress: LiveData<UserProgress> = _progress
@@ -57,7 +57,6 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    fun getProgress(): LiveData<UserProgress> = _progress
 
     val difficultyLevel: Int
         get() = _progress.value?.difficultyLevel ?: 1
@@ -135,7 +134,7 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
             }
 
             // 3. Update adaptive difficulty
-            difficultyEngine.recordSession(p, result.correct, result.total)
+            AdaptiveDifficultyEngine.recordSession(p, result.correct, result.total)
 
             // 4. Update streak
             updateStreak(p)

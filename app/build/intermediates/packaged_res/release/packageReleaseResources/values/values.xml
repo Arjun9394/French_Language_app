@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="accent_xp">#FFE66D</color>
+    <color name="bg_card">#1E3A5F</color>
+    <color name="bg_dark">#1A1A2E</color>
+    <color name="bg_surface">#16213E</color>
+    <color name="correct">#2ECC71</color>
+    <color name="primary">#FF6B35</color>
+    <color name="primary_variant">#E05A2B</color>
+    <color name="secondary">#4ECDC4</color>
+    <color name="text_primary">#EAEAEA</color>
+    <color name="text_secondary">#A0A0B0</color>
+    <color name="wrong">#E74C3C</color>
+    <string name="app_name">FrenchQuest</string>
+    <string name="nav_home">Accueil</string>
+    <string name="nav_progress">Progrès</string>
+    <style name="Theme.FrenchQuest" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primary_variant</item>
+        <item name="colorOnPrimary">@color/text_primary</item>
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorSurface">@color/bg_surface</item>
+        <item name="android:windowBackground">@color/bg_dark</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:statusBarColor">@color/bg_dark</item>
+        <item name="android:navigationBarColor">@color/bg_surface</item>
+    </style>
+</resources>

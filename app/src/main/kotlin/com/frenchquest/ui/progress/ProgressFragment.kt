@@ -38,7 +38,7 @@ class ProgressFragment : Fragment() {
         binding.rvBadges.layoutManager = GridLayoutManager(requireContext(), 3)
         binding.rvBadges.adapter = badgeAdapter
 
-        viewModel.getProgress().observe(viewLifecycleOwner, ::bindProgress)
+        viewModel.progress.observe(viewLifecycleOwner, ::bindProgress)
 
         FrenchDatabase.getInstance(requireContext())
             .badgeDao().getAllBadges()

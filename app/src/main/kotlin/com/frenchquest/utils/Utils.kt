@@ -77,11 +77,16 @@ class TTSManager private constructor(context: Context) {
         tts?.speak(text, TextToSpeech.QUEUE_FLUSH, null, utteranceId)
     }
 
-    fun stop() { tts?.stop() }
+    fun stop() {
+        // Bug 9 fix: no-op if already shut down — stale fragment references call this safely
+        if (!isReady) return
+        tts?.stop()
+    }
 
     fun shutdown() {
         tts?.stop()
         tts?.shutdown()
+        tts = null
         isReady = false
         instance = null
     }

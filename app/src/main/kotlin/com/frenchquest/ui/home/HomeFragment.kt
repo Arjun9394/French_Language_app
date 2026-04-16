@@ -45,7 +45,7 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getProgress().observe(viewLifecycleOwner, ::updateUI)
+        viewModel.progress.observe(viewLifecycleOwner, ::updateUI)
         setupGameGrid()
         binding.btnContinue.setOnClickListener {
             findNavController().navigate(R.id.action_home_to_wordMatch)

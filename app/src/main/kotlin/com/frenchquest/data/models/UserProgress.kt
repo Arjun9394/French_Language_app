@@ -72,8 +72,10 @@ data class UserProgress(
         totalXP += xp
         dailyXPToday += xp
         var newLevel = 1
+        // Bug 4 fix: removed the fragile `i >= 1` guard so index 0 is always considered.
+        // XP_THRESHOLDS[0] = 0, so the loop always terminates with at least newLevel = 1.
         for (i in XP_THRESHOLDS.indices.reversed()) {
-            if (i >= 1 && totalXP >= XP_THRESHOLDS[i]) {
+            if (totalXP >= XP_THRESHOLDS[i]) {
                 newLevel = (i + 1).coerceAtMost(XP_THRESHOLDS.size)
                 break
             }
