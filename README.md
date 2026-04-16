@@ -1,107 +1,45 @@
-# 🇫🇷 FrenchQuest — A1/A2 French Learning Game
+# 🇫🇷 Survival French — Essential Phrases Game
 
-A fully offline-first Android game for learning French at CEFR A1–A2 level.
-Built with **Kotlin**, **Room + KSP**, **Coroutines**, **ViewBinding**, **Navigation Component**, and **Material Design 3**.
+**Note: This application is designed exclusively for Android phones.**
 
----
-
-## 🚀 Tech Stack (Modern Android 2025)
-
-| Technology | Version | Purpose |
-|---|---|---|
-| Kotlin | 2.1.0 | Primary language (no Java) |
-| AGP | 8.7.3 | Android Gradle Plugin |
-| Gradle | 8.11.1 | Build system (Kotlin DSL) |
-| compileSdk | 35 | Latest Android SDK |
-| Room + KSP | 2.6.1 / 2.1.0 | Database with Kotlin Symbol Processing |
-| Coroutines | 1.9.0 | Async operations (no raw executors) |
-| ViewBinding | native | Type-safe view access |
-| Navigation | 2.8.5 | Single-activity architecture |
-| Material 3 | 1.12.0 | Modern theming |
-| WorkManager | 2.10.0 | Background streak reminders |
-| Lottie | 6.6.2 | Animations |
-| Lifecycle | 2.8.7 | ViewModel + LiveData |
+A streamlined, offline-first Android application focused 100% on mastering essential **Survival French** sentences. 
+Rebuilt to focus on the core phrases needed for travel and immediate communication.
 
 ---
 
-## 📁 Project Structure
-
-```
-FrenchQuestKt/
-├── build.gradle.kts                    # Root (Kotlin DSL)
-├── settings.gradle.kts                 # Module config
-├── gradle.properties
-├── app/
-│   ├── build.gradle.kts                # App-level deps (KSP, coroutines)
-│   ├── proguard-rules.pro
-│   └── src/main/
-│       ├── AndroidManifest.xml
-│       ├── kotlin/com/frenchquest/
-│       │   ├── FrenchQuestApp.kt       # Application class
-│       │   ├── StreakReminderWorker.kt  # CoroutineWorker
-│       │   ├── data/
-│       │   │   ├── database/           # Room DB, DAOs (separate files)
-│       │   │   ├── models/             # Word, UserProgress, Badge
-│       │   │   └── repository/         # FrenchQuestRepository
-│       │   ├── game/
-│       │   │   ├── engines/            # SpacedRepetition, AdaptiveDifficulty
-│       │   │   └── content/            # VocabContent, DialogueContent
-│       │   ├── ui/
-│       │   │   ├── MainActivity.kt
-│       │   │   ├── onboarding/         # Splash, PlacementTest
-│       │   │   ├── home/               # Dashboard, GameModeAdapter
-│       │   │   ├── game/               # All 8 mini-game fragments + ViewModel
-│       │   │   └── progress/           # Stats, badges
-│       │   └── utils/                  # TTSManager, GameResultEvent
-│       └── res/
-│           ├── layout/                 # All XML layouts
-│           ├── navigation/             # nav_graph.xml
-│           ├── values/                 # colors, strings, themes
-│           ├── menu/                   # bottom_nav_menu
-│           ├── drawable/               # Vector icons
-│           └── anim/                   # Transitions
-```
+## 📱 Platform Compatibility
+*   **Operating System**: Android Only (API 26+)
+*   **Device Type**: Android Smartphones
+*   **Offline Mode**: Fully supported (No internet required)
 
 ---
 
-## 🎮 Mini-Games (8 total, all implemented)
-
-| Game | Fragment | Skills |
-|---|---|---|
-| Word Match | `WordMatchGameFragment` | Vocabulary |
-| Flashcards | `FlashcardGameFragment` | Vocabulary + SR |
-| Fill the Gap | `FillGapGameFragment` | Grammar |
-| Listen & Tap | `ListenTapGameFragment` | Listening |
-| Dialogue | `DialogueGameFragment` | Speaking/Reading |
-| Pronounce | `PronounceGameFragment` | Speaking |
-| Quiz Blitz | `QuizBlitzFragment` | Mixed |
-| Bonus Round | `BonusRoundFragment` | Engagement |
+## 🚀 Survival Curriculum
+The app has been overhauled to focus exclusively on the **39 Essential Survival Sentences**, including:
+- 🔴 **Survival Essentials** (Greetings and fundamental politeness)
+- 🚻 **Getting Around** (Directions and transport)
+- ☕ **Daily Life** (Café, shopping, and hotel interactions)
 
 ---
 
-## 🧠 Core Systems
+## 🎮 Core Games (Optimized for Survival)
+The following modes are optimized for sentence-length learning:
+- 🃏 **Word Match**: Match full French phrases to their English meanings.
+- 📖 **Flashcards**: Standard spaced-repetition review.
+- ✏️ **Fill the Gap**: Focuses on completing survival sentences.
+- 🎧 **Listen & Tap**: Tap words in order as you hear them.
+- ⚡ **Quiz Blitz**: Fast-paced multiple-choice review.
 
-### Spaced Repetition (SM-2)
-- Each word tracks `easeFactor`, `interval`, `nextReviewDate`
-- Correct → increase interval; Wrong → reset to 1 day
-- Flashcard game loads due words first
+---
 
-### Adaptive Difficulty (5 levels)
-- Tracks rolling 10-game accuracy
-- >80% for 3 sessions → difficulty up
-- <40% for 2 sessions → difficulty down
-- Controls: choice count, time limits, CEFR level, hints
-
-### Gamification
-- XP per game with difficulty multiplier
-- Daily streak with WorkManager notifications
-- 20 badges with automatic unlock checks
-- Weekly challenges
+## 🧠 Clean Design & Logic
+- **Adaptive Difficulty**: Hidden behind the scenes to keep the UI clean.
+- **Zero Distraction**: No XP bars, levels, or streaks in the main view.
+- **Privacy First**: No telemetry or keys stored in the public repository.
 
 ---
 
 ## 🔧 Setup (Android Studio)
-
 ### Prerequisites
 - Android Studio Ladybug or newer
 - Android SDK 35
@@ -111,23 +49,15 @@ FrenchQuestKt/
 1. Open Android Studio → **File → Open** → select `FrenchQuestKt/`
 2. Wait for Gradle sync (Kotlin DSL + KSP)
 3. Run on device/emulator (API 26+)
-4. First launch → placement test → home screen
 
 ---
 
-## ✅ Issues Fixed from Original
-
-- ✅ Converted entire codebase from Java to Kotlin
-- ✅ Kotlin DSL (`build.gradle.kts`) instead of Groovy
-- ✅ Added `settings.gradle.kts` (was missing)
-- ✅ KSP instead of `annotationProcessor` for Room
-- ✅ Coroutines instead of raw `ExecutorService`
-- ✅ `CoroutineWorker` instead of `Worker`
-- ✅ ViewBinding instead of `findViewById`
-- ✅ Removed `SplashActivity` (manifest referenced it but it didn't exist) — now uses `SplashFragment`
-- ✅ Added missing `data/repository/` layer
-- ✅ Split `UserProgressDao` and `BadgeDao` into separate files
-- ✅ Removed duplicate `BonusAndFlashcardFragments.java` (had duplicate class defs + dummy `CardView`)
+## ✅ Major Progress Updates
+- ✅ Stripped application down to **Core Survival Sentences**.
+- ✅ Removed all "gamification" context (Streaks/Levels/XP) for a focused learning experience.
+- ✅ Cleaned Git history of sensitive keys and build artifacts.
+- ✅ Optimized Dialogue mini-games for raw sentence practice.
+- ✅ Optimized README for clarity on platform and purpose.
 - ✅ Fixed `ListenTapGameFragment` duplicate `onViewCreated`
 - ✅ Removed brace-expanded junk directories (`{ui/{home,game,...}}`)
 - ✅ Added proper navigation graph with all 8 game destinations
