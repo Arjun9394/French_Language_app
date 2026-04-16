@@ -9,10 +9,8 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.frenchquest.R
-import com.frenchquest.data.models.UserProgress
 import com.frenchquest.databinding.FragmentHomeBinding
 import com.frenchquest.ui.game.GameViewModel
-import java.util.Calendar
 
 class HomeFragment : Fragment() {
 
@@ -31,10 +29,7 @@ class HomeFragment : Fragment() {
             GameMode("📖", "Flashcards", "Flip & remember", R.id.action_home_to_flashcard),
             GameMode("✏️", "Fill the Gap", "Complete the sentence", R.id.action_home_to_fillGap),
             GameMode("🎧", "Listen & Tap", "Hear it, tap it", R.id.action_home_to_listenTap),
-            GameMode("💬", "Dialogue", "Choose your reply", R.id.action_home_to_dialogue),
-            GameMode("🎤", "Pronounce", "Say it right", R.id.action_home_to_pronounce),
-            GameMode("⚡", "Quiz Blitz", "10 questions, fast!", R.id.action_home_to_quizBlitz),
-            GameMode("🎁", "Bonus Round", "Surprise! Double XP", R.id.action_home_to_bonus),
+            GameMode("⚡", "Quiz Blitz", "Fast review", R.id.action_home_to_quizBlitz)
         )
     }
 
@@ -45,43 +40,25 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.progress.observe(viewLifecycleOwner, ::updateUI)
+        
+        binding.tvGreeting.text = "Survival French"
+        
+        // Hide context elements
+        binding.tvStreakCount.visibility = View.GONE
+        binding.tvLevel.visibility = View.GONE
+        binding.tvXP.visibility = View.GONE
+        binding.pbXP.visibility = View.GONE
+        binding.pbDailyXP.visibility = View.GONE
+        binding.tvDailyXP.visibility = View.GONE
+        binding.pbDailyWords.visibility = View.GONE
+        binding.tvDailyWords.visibility = View.GONE
+        binding.tvWeeklyChallenge.visibility = View.GONE
+        
         setupGameGrid()
+        
         binding.btnContinue.setOnClickListener {
             findNavController().navigate(R.id.action_home_to_wordMatch)
         }
-    }
-
-    private fun updateUI(p: UserProgress?) {
-        if (p == null) return
-
-        val hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
-        binding.tvGreeting.text = when {
-            hour < 12 -> "Bonjour ! 🌅"
-            hour < 18 -> "Bon après-midi ! ☀️"
-            else -> "Bonsoir ! 🌙"
-        }
-
-        binding.tvStreakCount.text = "${p.currentStreak} 🔥"
-        binding.tvLevel.text = "Level ${p.level}  •  ${p.cefrLevel}"
-        binding.tvXP.text = "${p.totalXP} XP"
-
-        binding.pbXP.max = p.getXPRangeForLevel().coerceAtLeast(1)
-        binding.pbXP.progress = p.getXPProgressInLevel()
-
-        binding.pbDailyXP.max = p.dailyXPGoal
-        binding.pbDailyXP.progress = p.dailyXPToday.coerceAtMost(p.dailyXPGoal)
-        binding.tvDailyXP.text = "${p.dailyXPToday.coerceAtMost(p.dailyXPGoal)} / ${p.dailyXPGoal} XP today"
-
-        binding.pbDailyWords.max = p.dailyWordsGoal
-        binding.pbDailyWords.progress = p.dailyWordsToday.coerceAtMost(p.dailyWordsGoal)
-        binding.tvDailyWords.text = "${p.dailyWordsToday.coerceAtMost(p.dailyWordsGoal)} / ${p.dailyWordsGoal} words"
-
-        val gamesLeft = (7 - p.weeklyGamesPlayed).coerceAtLeast(0)
-        binding.tvWeeklyChallenge.text = if (gamesLeft == 0)
-            "📅 Weekly challenge complete! 🏆"
-        else
-            "📅 Play $gamesLeft more games this week"
     }
 
     private fun setupGameGrid() {

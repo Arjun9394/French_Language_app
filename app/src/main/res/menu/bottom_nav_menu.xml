@@ -3,9 +3,5 @@
     <item
         android:id="@+id/homeFragment"
         android:icon="@drawable/ic_home"
-        android:title="@string/nav_home" />
-    <item
-        android:id="@+id/progressFragment"
-        android:icon="@drawable/ic_progress"
-        android:title="@string/nav_progress" />
+        android:title="Survival" />
 </menu>

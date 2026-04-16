@@ -35,16 +35,7 @@ class SplashFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launch {
             kotlinx.coroutines.delay(1500)
             if (!isAdded) return@launch
-            val needsPlacement = withContext(Dispatchers.IO) {
-                val db = FrenchDatabase.getInstance(requireContext())
-                val p = db.userProgressDao().getProgressSync()
-                p == null || !p.hasCompletedPlacement
-            }
-            if (!isAdded) return@launch
-            val action = if (needsPlacement)
-                R.id.action_splash_to_placement
-            else
-                R.id.action_splash_to_home
+            val action = R.id.action_splash_to_home
             findNavController().navigate(action)
         }
     }

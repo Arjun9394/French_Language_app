@@ -62,7 +62,7 @@ class DialogueGameFragment : Fragment() {
         dialogueIndex = index; exchangeIndex = 0
         val d = allDialogues[index]
         binding.tvScenarioTitle.text = "${d.emoji}  ${d.title}"
-        binding.tvScenarioContext.text = d.context
+        binding.tvScenarioContext.text = ""
         showExchange(0)
     }
 
@@ -104,7 +104,7 @@ class DialogueGameFragment : Fragment() {
             correctCount++; xpEarned += 10
             btn.setBackgroundColor(Color.parseColor("#2ECC71"))
             binding.tvFeedback.setTextColor(Color.parseColor("#2ECC71"))
-            binding.tvFeedback.text = "✓ ${choice.consequence ?: "Parfait !"}  (+10 XP)"
+            binding.tvFeedback.text = "✓ Parfait !  (+10 XP)"
             tts.speak(choice.french)
         } else {
             btn.setBackgroundColor(Color.parseColor("#E74C3C"))
